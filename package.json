@@ -1,0 +1,19 @@
+{
+  "name": "openlab-e2e-tests",
+  "description": "End-to-End Tests for CityTech OpenLab",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livinglab/openlab-e2e-tests.git"
+  },
+  "scripts": {
+    "test:e2e": "cypress run"
+  },
+  "author": "OpenLab Development Team",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^3.7.0",
+    "faker": "^4.1.0"
+  }
+}

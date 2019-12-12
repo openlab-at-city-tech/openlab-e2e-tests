@@ -9,7 +9,7 @@ Install package dependencies:
 npm install
 ```
 
-Copy distrubuted Cypress configuration and update credentials:
+Copy distributed Cypress configuration and update credentials:
 ```
 cp cypress.dist.json cypress.json
 ```

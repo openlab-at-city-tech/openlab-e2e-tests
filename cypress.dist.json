@@ -1,6 +1,7 @@
 {
   "baseUrl": "http://openlabdev.test",
   "env": {
+    "site": "/e2e-testing",
     "wp_user": "admin",
     "wp_pass": "secret"
   }

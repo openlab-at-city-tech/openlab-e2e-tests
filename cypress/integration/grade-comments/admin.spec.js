@@ -3,7 +3,7 @@ describe( 'Grade comments as an admin', () => {
 
 	before( () => {
 		cy.logout();
-		cy.login();
+		cy.login('faculty');
 		cy.preserveCookies();
 	});
 

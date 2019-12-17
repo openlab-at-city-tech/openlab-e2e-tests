@@ -2,7 +2,17 @@
   "baseUrl": "http://openlabdev.test",
   "env": {
     "site": "/e2e-testing",
-    "wp_user": "admin",
-    "wp_pass": "secret"
+    "faculty": {
+      "user": "e2etestfaculty",
+      "pass": "secret"
+    },
+    "student": {
+      "user": "e2eteststudent",
+      "pass": "secret"
+    },
+    "member": {
+      "user": "e2etestmember",
+      "pass": "secret"
+    }
   }
 }

@@ -1,11 +1,13 @@
-Cypress.Commands.add('login', () => {
+Cypress.Commands.add('login', ( type ) => {
+	const account = Cypress.env( type );
+
 	cy.request({
 		url: '/wp-login.php',
 		method: 'POST',
 		form: true,
 		body: {
-			log: Cypress.env('wp_user'),
-			pwd: Cypress.env('wp_pass'),
+			log: account.user,
+			pwd: account.pass,
 			rememberme: 'forever',
 			testcookie: 1,
 		},

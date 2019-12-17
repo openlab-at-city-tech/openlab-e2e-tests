@@ -1,9 +1,9 @@
-describe( 'Grade comments as an admin', () => {
+describe( 'Grade comments as an author', () => {
 	const siteUrl = Cypress.env('site');
 
 	before( () => {
 		cy.logout();
-		cy.login('faculty');
+		cy.login('student1');
 		cy.preserveCookies();
 	});
 
@@ -13,13 +13,14 @@ describe( 'Grade comments as an admin', () => {
 		});
 
 		beforeEach( () => {
+			cy.get('.comment-list > .comment-private').first().as('privateComment');
 			cy.get('.comment-list > .comment-grade').first().as('gradeComment');
 		});
 
-		it( 'can see grade/private comments options', () => {
-			cy.get('#olgc-private-comment').should('exist');
-			cy.get('#olgc-add-a-grade').should('exist');
-			cy.get('#olgc-grade').should('exist');
+		it( 'cannot see grade/private comments options', () => {
+			cy.get('#olgc-private-comment').should('not.exist');
+			cy.get('#olgc-add-a-grade').should('not.exist');
+			cy.get('#olgc-grade').should('not.exist');
 		});
 
 		it( 'can see grade comments', () => {
@@ -44,6 +45,14 @@ describe( 'Grade comments as an admin', () => {
 			cy.get('@gradeComment')
 				.find('.olgc-grade-display')
 				.should('not.have.class', 'olgc-grade-hidden');
+		});
+
+		it( 'can leave private reply', () => {
+			cy.get('@privateComment')
+				.find('.comment-reply-link')
+				.click();
+
+			cy.get('#comment').should('have.focus');
 		});
 	});
 

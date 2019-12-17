@@ -6,12 +6,12 @@
       "user": "e2etestfaculty",
       "pass": "secret"
     },
-    "student": {
-      "user": "e2eteststudent",
+    "student1": {
+      "user": "e2eteststudent1",
       "pass": "secret"
     },
-    "member": {
-      "user": "e2etestmember",
+    "student2": {
+      "user": "e2eteststudent2",
       "pass": "secret"
     }
   }

@@ -19,11 +19,11 @@ describe( 'Grade comments as a student', () => {
 		});
 
 		it( 'can see public grade comments', () => {
-			cy.get('.comment-list > .comment-grade').should('exist');
+			cy.get('.comment-list > .comment-has-grade').should('exist');
 		});
 
 		it( 'cannot see private comments', () => {
-			cy.get('.comment-list > .comment-private').should('not.exist');
+			cy.get('.comment-list > .comment-is-private').should('not.exist');
 		});
 	});
 
@@ -45,11 +45,11 @@ describe( 'Grade comments as a student', () => {
 		});
 
 		it( 'can see public grade comments', () => {
-			cy.get('#the-comment-list > .comment-grade').should('exist');
+			cy.get('#the-comment-list > .comment-has-grade').should('exist');
 		});
 
 		it( 'cannot see private comments', () => {
-			cy.get('#the-comment-list > .comment-private').should('not.exist');
+			cy.get('#the-comment-list > .comment-is-private').should('not.exist');
 		});
 	});
 });

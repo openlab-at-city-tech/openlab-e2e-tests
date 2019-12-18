@@ -13,8 +13,8 @@ describe( 'Grade comments as an author', () => {
 		});
 
 		beforeEach( () => {
-			cy.get('.comment-list > .comment-private').first().as('privateComment');
-			cy.get('.comment-list > .comment-grade').first().as('gradeComment');
+			cy.get('.comment-list > .comment-is-private').first().as('privateComment');
+			cy.get('.comment-list > .comment-has-grade').first().as('gradeComment');
 		});
 
 		it( 'cannot see grade/private comments options', () => {
@@ -24,11 +24,11 @@ describe( 'Grade comments as an author', () => {
 		});
 
 		it( 'can see grade comments', () => {
-			cy.get('.comment-list > .comment-grade').should('exist');
+			cy.get('.comment-list > .comment-has-grade').should('exist');
 		});
 
 		it( 'can see private comments', () => {
-			cy.get('.comment-list > .comment-private').should('exist');
+			cy.get('.comment-list > .comment-is-private').should('exist');
 		});
 
 		it( 'has default state of hidden', () => {
@@ -74,11 +74,11 @@ describe( 'Grade comments as an author', () => {
 		});
 
 		it( 'can see grade comments', () => {
-			cy.get('#the-comment-list > .comment-grade').should('exist');
+			cy.get('#the-comment-list > .comment-has-grade').should('exist');
 		});
 
 		it( 'can see private comments', () => {
-			cy.get('#the-comment-list > .comment-private').should('exist');
+			cy.get('#the-comment-list > .comment-is-private').should('exist');
 		});
 	});
 });

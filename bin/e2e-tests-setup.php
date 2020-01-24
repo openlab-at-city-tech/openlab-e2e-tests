@@ -18,23 +18,6 @@ namespace OpenLab\E2ETests\Setup;
 use WP_CLI;
 use BP_Groups_Group;
 
-function create_user( $username ) {
-	$exists = \username_exists( $username );
-	if ( $exists ) {
-		WP_CLI::log( "User exists. ID: {$exists}" );
-		return $exists;
-	}
-
-	$password = \wp_generate_password( 24 );
-	$email    = \sprintf( '%s@mail.citytech.cuny.edu', $username );
-	$user_id  = \wpmu_create_user( $username, $password, $email );
-
-	WP_CLI::log( "Created user. ID: {$user_id}" );
-	WP_CLI::log( "Password: {$password}" );
-
-	return $user_id;
-}
-
 function create_course( $admin_id = 0 ) {
 	$slug   = 'e2e-testing-course';
 	$exists = BP_Groups_Group::group_exists( $slug );
@@ -154,11 +137,11 @@ function setup() {
 		WP_CLI::error( 'This is not a multisite installation.' );
 	}
 
-	$admin_id = create_user( 'e2etestfaculty' );
+	$admin_id = \username_exists( 'e2etestfaculty' );
 
 	$authors = [];
 	foreach( [ 'e2eteststudent1', 'e2eteststudent2' ] as $username ) {
-		$authors[ $username ] = create_user( $username );
+		$authors[ $username ] = \username_exists( $username );
 	}
 
 	$group_id = create_course( $admin_id );

@@ -7,7 +7,7 @@ describe( 'Portfolios', () => {
 	};
 
 	before( () => {
-		cy.login();
+		cy.login('faculty');
 		cy.preserveCookies();
 	});
 

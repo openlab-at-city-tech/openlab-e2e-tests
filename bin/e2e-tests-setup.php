@@ -1,7 +1,7 @@
 <?php
 /**
  * File can be run using `wp eval-file` command:
- * `wp eval-file e2e-tests-setup.php`
+ * `wp eval-file e2e-tests-setup.php --user=<admin-id>`
  *
  * Steps:
  * 1. Create user "E2ETest Faculty" (admin role).
@@ -145,7 +145,19 @@ function setup() {
 	}
 
 	$group_id = create_course( $admin_id );
-	$site     = create_site( $admin_id );
+
+	// Add users to to group and setup last activity.
+	foreach ( $authors as $username => $user_id ) {
+		\groups_join_group( $group_id, $user_id );
+
+		if ( 'e2eteststudent1' === $username ) {
+			\groups_promote_member( $authors['e2eteststudent1'], $group_id, 'mod' );
+		}
+
+		\bp_update_user_last_activity( $user_id );
+	}
+
+	$site = create_site( $admin_id );
 	
 	if ( $site['id'] && $group_id ) {
 		\groups_update_groupmeta( $group_id, 'wds_bp_group_site_id', $site['id'] );

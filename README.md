@@ -18,3 +18,13 @@ Run tests using Cypress GUI:
 ```
 npx cypress open
 ```
+
+## Setup Test Data
+
+```
+wp eval-file bin/e2e-tests-setup.php --user=<admin-id>
+```
+
+## Notes
+
+* The Cypress might fail to authorize users if server has `.htaccess` directive against brute-force password attacks.

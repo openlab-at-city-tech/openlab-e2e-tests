@@ -2,7 +2,7 @@ describe( 'Course Settings', () => {
 	context( 'Group Admin', () => {
 		before( () => {
 			cy.logout();
-			cy.login('mamaduka');
+			cy.login('faculty');
 			cy.preserveCookies();
 			cy.visit('/groups/e2e-testing-course/admin/manage-members/');
 		} );
